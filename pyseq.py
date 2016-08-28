@@ -61,7 +61,7 @@ __version__ = "0.4.4"
 global_format = '%4l %h%p%t %R'
 
 # regex for matching numerical characters
-digits_re = re.compile(r'\d+')
+digits_re = re.compile(r'-?\d+')
 
 # regex for matching format directives
 format_re = re.compile(r'%(?P<pad>\d+)?(?P<var>\w+)')
@@ -98,7 +98,7 @@ else:
 
 
 def _natural_key(x):
-    return [int(c) if c.isdigit() else c.lower() for c in re.split("(\d+)", x)]
+    return [int(c) if c.isdigit() else c.lower() for c in re.split("(-?\d+)", x)]
 
 
 def natural_sort(items):
